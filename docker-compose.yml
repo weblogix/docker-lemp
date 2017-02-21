@@ -1,0 +1,31 @@
+version: '2'
+services:
+  nginx:
+    # build: ../docker-nginx
+    image: weblogix/docker-centos-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker-files/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/www/default:/var/www/html/default
+      - ./data/www/vhosts:/var/www/html/vhosts
+  php:
+    # build: ../docker-php-fpm
+    image: weblogix/docker-centos-php-fpm
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./data/www/default:/var/www/html/default
+      - ./data/www/vhosts:/var/www/html/vhosts
+  mariadb:
+    image: mariadb:latest
+    command: mysqld --innodb-buffer-pool-size=20M
+    volumes:
+      - "./data/db/mariadb:/var/lib/mysql:rw"
+    environment:
+      - "MYSQL_DATABASE=my_db_name"
+      - "MYSQL_USER=my_db_user"
+      - "MYSQL_PASSWORD=my_db_user_passwd"
+      - "MYSQL_ROOT_PASSWORD=my_db_root_passwd"
+    ports:
+      - "3306:3306"
