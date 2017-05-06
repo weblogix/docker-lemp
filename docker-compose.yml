@@ -2,7 +2,7 @@ version: '2'
 services:
   nginx:
     # build: ../docker-nginx
-    image: weblogix/docker-centos-nginx
+    image: weblogix/docker-nginx:latest
     ports:
       - "80:80"
     volumes:
@@ -11,9 +11,9 @@ services:
       - ./data/www/vhosts:/var/www/html/vhosts
   php:
     # build: ../docker-php-fpm
-    image: weblogix/docker-centos-php-fpm
+    image: weblogix/docker-php-fpm:latest
     ports:
-      - "9000:9000"
+      - "9000:9000"     
     volumes:
       - ./data/www/default:/var/www/html/default
       - ./data/www/vhosts:/var/www/html/vhosts
@@ -29,3 +29,9 @@ services:
       - "MYSQL_ROOT_PASSWORD=my_db_root_passwd"
     ports:
       - "3306:3306"
+  mailcatcher:
+    # build: ../docker-mailcatcher
+    image: weblogix/mailcatcher:latest
+    ports:
+      - "1025:1025"
+      - "1080:1080"
