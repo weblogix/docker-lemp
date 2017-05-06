@@ -2,7 +2,7 @@ version: '2'
 services:
   nginx:
     # build: ../docker-nginx
-    image: weblogix/docker-nginx:latest
+    image: weblogix/nginx
     ports:
       - "80:80"
     volumes:
@@ -11,7 +11,7 @@ services:
       - ./data/www/vhosts:/var/www/html/vhosts
   php:
     # build: ../docker-php-fpm
-    image: weblogix/docker-php-fpm:latest
+    image: weblogix/php-fpm
     ports:
       - "9000:9000"     
     volumes:
