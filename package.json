@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/weblogix/docker-webserver.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Randy Lowe <randy@weblogix.ca>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/weblogix/docker-webserver/issues"
   },
