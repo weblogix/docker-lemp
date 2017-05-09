@@ -1,15 +1,15 @@
 version: '2'
 services:
   nginx:
-    build: ../docker-nginx
-    # image: weblogix:nginx
-    privileged: true
+    # build: ../docker-nginx
+    image: weblogix/nginx
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./docker-files/nginx/ssl:/etc/ssl
       - ./docker-files/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/www/default:/var/www/html/default
       - ./data/www/vhosts:/var/www/html/vhosts
   php:
     # build: ../docker-php-fpm
@@ -22,8 +22,8 @@ services:
   mariadb:
     image: mariadb:latest
     command: mysqld --innodb-buffer-pool-size=20M
-    # volumes:
-    #   - "./data/db/mariadb:/var/lib/mysql:rw"
+    volumes:
+      - "./data/db/mariadb:/var/lib/mysql:rw"
     environment:
       - "MYSQL_DATABASE=my_db_name"
       - "MYSQL_USER=my_db_user"

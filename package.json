@@ -7,8 +7,9 @@
     "start": "docker-compose up",
     "stop": "docker-compose down",
     "build": "docker-compose build",
-    "buildup": "docker-compose build && docker-compose up nginx php",
-    "pull": "docker-compose pull"
+    "buildup": "docker-compose build && docker-compose up",
+    "pull": "docker-compose pull",
+    "db-reset": "docker-compose rm mariadb"
   },
   "repository": {
     "type": "git",
