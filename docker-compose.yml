@@ -1,13 +1,15 @@
 version: '2'
 services:
   nginx:
-    # build: ../docker-nginx
-    image: weblogix/nginx
+    build: ../docker-nginx
+    # image: weblogix:nginx
+    privileged: true
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./docker-files/nginx/conf.d/sites-enabled:/etc/nginx/conf.d/sites-enabled
+      - ./docker-files/nginx/ssl:/etc/ssl
+      - ./docker-files/nginx/conf.d:/etc/nginx/conf.d
       - ./data/www/vhosts:/var/www/html/vhosts
   php:
     # build: ../docker-php-fpm

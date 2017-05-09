@@ -7,6 +7,7 @@
     "start": "docker-compose up",
     "stop": "docker-compose down",
     "build": "docker-compose build",
+    "buildup": "docker-compose build && docker-compose up nginx php",
     "pull": "docker-compose pull"
   },
   "repository": {
