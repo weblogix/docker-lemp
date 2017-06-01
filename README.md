@@ -58,22 +58,24 @@ The default nginx root folder is located at ``data/www/default``.  Inside you wi
 
 Configuration for the default host can be found in  ``docker-files/nginx/conf.d/default.conf``.
 
+#### Configuration files
+
+| Configuration file        | Host           |
+| ------------- |:-------------:| -----:|
+| ``docker-files/nginx/conf.d/default.conf`` | http://localhost |
+| ``docker-files/nginx/conf.d/sites-enabled/example.dev.conf``| http://example.dev  |
+
+
 #### Root folders
 
 | Local        | Host           |
 | ------------- |:-------------:|
-| ``data/www/default`` | http://localhost root folder  |
-| ``data/www/vhosts/example.dev`` | http://example.dev root folder  |
-
+| ``data/www/default`` | http://localhost  |
+| ``data/www/vhosts/example.dev`` | http://example.dev  |
 
 Eg.  Creating ``data/www/default/test.html`` would be loaded as ``http://localhost/test.html`` in your browser
 
-#### Configuration files
 
-| Local        | Host           | Info  |
-| ------------- |:-------------:| -----:|
-| ``docker-files/nginx/conf.d/default.conf`` | http://localhost configuration file |
-| ``docker-files/nginx/conf.d/sites-enabled/example.dev.conf``| http://example.dev (virtual host) configuration file  |
 
 #### Adding additional Virtual Hosts
 
@@ -86,7 +88,7 @@ To add additional vhosts (eg. http://blah.dev)
 5. Visit ``http://blah.dev`` in your browser.  Your index page should load.
 
 
-# Containers
+# Images
 
 ## Nginx (nginx)
 - Based off from official [nginx](https://hub.docker.com/_/nginx/) image
