@@ -60,8 +60,8 @@ Configuration for the default host can be found in  ``docker-files/nginx/conf.d/
 
 #### Configuration files
 
-| Configuration file        | Host           |
-| ------------- |:-------------:| -----:|
+| Configuration file  | Host|
+| ------------- |:-------------:|
 | ``docker-files/nginx/conf.d/default.conf`` | http://localhost |
 | ``docker-files/nginx/conf.d/sites-enabled/example.dev.conf``| http://example.dev  |
 
