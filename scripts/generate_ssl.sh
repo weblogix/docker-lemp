@@ -1,4 +1,4 @@
-SSL_FOLDER=../docker-files/nginx/ssl
+SSL_FOLDER='../docker-files/nginx/ssl'
 
 openssl dhparam -out $SSL_FOLDER/dhparam.pem 2048
 openssl genrsa -des3 -passout pass:x -out $SSL_FOLDER/server.pass.key 2048
